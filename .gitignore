@@ -1,2 +1,3 @@
 *.so
 models/curope/build/
+__pycache__/
