@@ -180,6 +180,8 @@ class FeatureFusionBlock_custom(nn.Module):
             bias=True,
             groups=1,
         )
+        # self.out_conv.weight.register_hook(lambda g: g.contiguous())
+        self.out_conv.weight.data = self.out_conv.weight.data.contiguous()
 
         self.resConfUnit1 = ResidualConvUnit_custom(features, activation, bn)
         self.resConfUnit2 = ResidualConvUnit_custom(features, activation, bn)
